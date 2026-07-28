@@ -1,0 +1,25 @@
+name: Feature request
+description: Propose an evidence-backed improvement.
+title: "[Feature] "
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: Describe the user or agent failure before describing the solution.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Link a repository, fixture, screenshot, audit, or repeated workflow.
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Desired outcome
+      description: Explain how we would verify this is solved.
+    validations:
+      required: true
