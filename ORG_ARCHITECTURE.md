@@ -55,7 +55,7 @@ Every official public repository must have:
 | GitHub Action | `memi/action.yml` | Consumers pin a full commit SHA |
 | MCP Registry | `memi/server.json` | Existing server identity remains compatible during migration |
 | GHCR | Core release workflow | New releases publish to `ghcr.io/memi-design/memi`; the personal namespace remains historical |
-| Homebrew | `homebrew-memi` | Tap migration follows a verified Studio release |
+| Homebrew | `homebrew-memi` | Canonical tap is `memi-design/memi` |
 | Website | `memoire-web` | Version and release copy are generated from the core manifest |
 
 ## Transfer gate
@@ -68,7 +68,7 @@ Before moving a repository:
 - update the canonical local remote;
 - rerun clean installs and public-link checks after the move.
 
-The Homebrew tap and any repository with a live Pages environment move only after their external identities are ready.
+Any repository with a live Pages environment moves only after its external identity is ready.
 
 ## Lifecycle
 
