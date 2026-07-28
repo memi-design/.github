@@ -44,10 +44,14 @@ npx skills add memi-design/memi --skill audit-frontend-design
 
 ## Labs and integration proofs
 
+- [`mermaid-jam`](https://github.com/memi-design/mermaid-jam) — local-only FigJam plugin for editable Mermaid and markdown diagrams.
 - [`ripple-image-transitions`](https://github.com/memi-design/ripple-image-transitions) — SwiftUI and Metal evaluation fork.
 - [`chatbot`](https://github.com/memi-design/chatbot) — shadcn chatbot integration proof with Memi design CI.
 
 Proof forks preserve upstream attribution and do not imply partnership.
+
+The official CLI and Studio Homebrew tap lives at
+[`homebrew-memi`](https://github.com/memi-design/homebrew-memi).
 
 ## How we build
 
