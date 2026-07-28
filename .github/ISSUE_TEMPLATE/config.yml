@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Questions and implementation help
+    url: https://github.com/memi-design/memi/discussions
+    about: Ask for help or discuss an integration before opening a bug.
+  - name: Security vulnerability
+    url: https://github.com/memi-design/.github/blob/main/SECURITY.md
+    about: Use the private reporting instructions instead of a public issue.
