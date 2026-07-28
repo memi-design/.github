@@ -31,6 +31,7 @@ Labs exist to demonstrate one integration or design-engineering capability. They
 
 | Repository | Proof contract |
 | --- | --- |
+| `mermaid-jam` | Local-only FigJam diagram tooling with a verified public Pages build |
 | `ripple-image-transitions` | SwiftUI and Metal audit integration with retained upstream attribution |
 | `chatbot` | Real shadcn application with a pinned design-CI workflow |
 
