@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/memi-design/memi/main/assets/readme-hero.svg" alt="Memi audits an interface before a coding agent edits it." width="100%" />
+  <img src="https://raw.githubusercontent.com/memi-design/.github/main/brand/memi-social-preview.jpg" alt="Memi pixel-heart mosaic on a black field." width="100%" />
 </p>
 
 <p align="center">
@@ -63,3 +63,5 @@ The official CLI and Studio Homebrew tap lives at
 - Public integrations must be runnable, attributed, and maintained.
 
 [Documentation](https://memoire.cv) · [npm](https://www.npmjs.com/package/@memi-design/cli) · [Discussions](https://github.com/memi-design/memi/discussions) · [Organization architecture](https://github.com/memi-design/.github/blob/main/ORG_ARCHITECTURE.md)
+
+[Contribute](https://github.com/memi-design/.github/blob/main/CONTRIBUTING.md) · [Open-source model](https://github.com/memi-design/.github/blob/main/OPEN_SOURCE.md) · [Security](https://github.com/memi-design/.github/blob/main/SECURITY.md) · [Code of Conduct](https://github.com/memi-design/.github/blob/main/CODE_OF_CONDUCT.md)

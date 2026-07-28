@@ -1,6 +1,18 @@
 # Contributing to Memi
 
-Thank you for improving Memi.
+Thank you for improving Memi. Contributions of code, design evidence, tests,
+documentation, accessibility review, and reproducible integrations are welcome.
+
+## First contribution
+
+1. Choose an unassigned issue labeled `good first issue`, or open a focused bug
+   with a reproduction.
+2. Comment that you are working on it so effort is not duplicated.
+3. Fork the repository, branch from `main`, and keep the change narrowly scoped.
+4. Open a pull request with the exact validation commands and rendered evidence
+   when visual behavior changes.
+
+Advance permission is not required for an unassigned `good first issue`.
 
 ## Choose the right repository
 
@@ -11,6 +23,18 @@ Thank you for improving Memi.
 - Bugs in a proof fork: report them in that fork and link the upstream source when relevant.
 
 Start with an issue for broad behavior or architecture changes. Small documentation, fixture, and focused bug fixes may go directly to a pull request.
+
+## Local workflow
+
+Use the package manager and commands declared by the repository. Before opening
+a pull request:
+
+- run formatting, lint, typecheck, tests, and build checks that apply;
+- add a regression test before fixing behavioral defects;
+- include screenshots or recordings for rendered changes, including reduced
+  motion or fallback behavior where relevant;
+- update user-facing documentation when commands, schemas, or installation
+  paths change.
 
 ## Contribution standard
 
@@ -23,3 +47,14 @@ Start with an issue for broad behavior or architecture changes. Small documentat
 
 Each repository may define additional checks in its own contributing guide.
 
+## Review and merge
+
+- Pull requests are reviewed for correctness, security, accessibility,
+  provenance, compatibility, and maintenance cost.
+- Authors should resolve review threads or explain the tradeoff with evidence.
+- Maintainers normally squash-merge into `main` and delete the source branch.
+- A pull request may be closed when it is unsafe, out of scope, inactive after
+  follow-up, or duplicates a supported direction.
+- Substantive contributors are credited in release notes when their work ships.
+
+By participating, you agree to follow the [Code of Conduct](CODE_OF_CONDUCT.md).
