@@ -2,6 +2,10 @@
 
 <!-- Describe the smallest complete behavior change. -->
 
+## Related issue
+
+<!-- Use "Closes #123" when applicable. -->
+
 ## Evidence
 
 <!-- Link files, tests, screenshots, audit output, or rendered proof. -->
@@ -18,3 +22,10 @@
 - [ ] Licenses and attribution are preserved.
 - [ ] Public paths and release metadata remain compatible.
 
+## Contributor checklist
+
+- [ ] I added or updated tests before implementation when behavior changed.
+- [ ] I ran the repository's applicable lint, typecheck, test, and build checks.
+- [ ] I included rendered proof for visual changes and checked accessibility.
+- [ ] I updated documentation for public commands, schemas, or install paths.
+- [ ] This pull request contains one reviewable, independently useful change.
