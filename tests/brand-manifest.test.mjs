@@ -99,6 +99,33 @@ test("Design Skills install URL resolves to organization-owned instructions", as
   );
 });
 
+test("manifest records current and compatibility package identities explicitly", async () => {
+  const manifest = await readJson(MANIFEST_RELATIVE_PATH);
+  const products = Object.fromEntries(
+    manifest.products.map((product) => [product.id, product]),
+  );
+
+  assert.deepEqual(products.cli.packages, [
+    {
+      name: "@memi-design/cli",
+      registry: "npm",
+      status: "current",
+      url: "https://www.npmjs.com/package/@memi-design/cli",
+    },
+  ]);
+  assert.deepEqual(products["design-skills"].packages, [
+    {
+      name: "@memoire/design-skills",
+      registry: "workspace",
+      status: "legacy-compatibility",
+      url: "https://github.com/memi-design/design-skills",
+      note: "Repository tooling identifier only; not a public npm installation surface.",
+    },
+  ]);
+  assert.deepEqual(products.studio.packages, []);
+  assert.deepEqual(products.canvas.packages, []);
+});
+
 test("policy rejects missing, unexpected, and incorrectly staged products", async () => {
   const manifest = await readJson(MANIFEST_RELATIVE_PATH);
   const invalidManifest = structuredClone(manifest);
