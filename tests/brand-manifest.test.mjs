@@ -60,6 +60,45 @@ test("manifest names the four canonical products and keeps Canvas in development
   assert.equal(manifest.organization.urls.website, "https://memoire.cv");
 });
 
+test("manifest enforces lowercase memi naming and content-addressed product icons", async () => {
+  const manifest = await readJson(MANIFEST_RELATIVE_PATH);
+  const products = Object.fromEntries(
+    manifest.products.map((product) => [product.id, product]),
+  );
+
+  assert.equal(manifest.organization.name, "memi");
+  assert.deepEqual(
+    manifest.products.map(({ name }) => name),
+    ["memi CLI", "memi Studio", "memi Design Skills", "memi Canvas"],
+  );
+  for (const product of manifest.products) {
+    for (const icon of product.icons) {
+      assert.match(icon.sha256, /^[a-f0-9]{64}$/);
+    }
+  }
+
+  assert.equal(products.canvas.icons[0].id, "canvas-single-heart");
+  assert.equal(
+    products.canvas.icons[0].sha256,
+    "da068f20ba9e0e43f59ebde8602b43342f8c77fef2c080155a18d5a8fd0e25c2",
+  );
+  assert.match(products.canvas.icons[0].url, /memi-canvas\/.*\/icon\.png$/);
+  assert.match(
+    products.canvas.icons[0].sourceUrl,
+    /MemiCanvas-Iteration-02\.icon\/icon\.json$/,
+  );
+});
+
+test("Design Skills install URL resolves to organization-owned instructions", async () => {
+  const manifest = await readJson(MANIFEST_RELATIVE_PATH);
+  const designSkills = manifest.products.find(({ id }) => id === "design-skills");
+
+  assert.equal(
+    designSkills.urls.install,
+    "https://github.com/memi-design/design-skills#installation",
+  );
+});
+
 test("policy rejects missing, unexpected, and incorrectly staged products", async () => {
   const manifest = await readJson(MANIFEST_RELATIVE_PATH);
   const invalidManifest = structuredClone(manifest);
