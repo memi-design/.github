@@ -1,6 +1,14 @@
 import assert from "node:assert/strict";
-import { readFile } from "node:fs/promises";
+import {
+  copyFile,
+  mkdir,
+  mkdtemp,
+  readFile,
+  rm,
+  writeFile,
+} from "node:fs/promises";
 import { spawnSync } from "node:child_process";
+import { tmpdir } from "node:os";
 import test from "node:test";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
@@ -51,6 +59,18 @@ test("manifest names the four canonical products and keeps Canvas in development
   assert.equal(manifest.brandRevision > 0, true);
 });
 
+test("policy rejects missing, unexpected, and incorrectly staged products", async () => {
+  const manifest = await readJson(MANIFEST_RELATIVE_PATH);
+  const invalidManifest = structuredClone(manifest);
+  invalidManifest.products[0].id = "unexpected-product";
+  invalidManifest.products[1].status = "development";
+
+  const errors = validateBrandPolicy(invalidManifest).join("\n");
+  assert.match(errors, /Missing canonical product cli/);
+  assert.match(errors, /Unexpected canonical product unexpected-product/);
+  assert.match(errors, /Product studio must have status available/);
+});
+
 test("schema rejects a product without a license", async () => {
   const [manifest, schema] = await Promise.all([
     readJson(MANIFEST_RELATIVE_PATH),
@@ -62,6 +82,21 @@ test("schema rejects a product without a license", async () => {
   assert.match(
     validateManifestData(invalidManifest, schema).join("\n"),
     /license/,
+  );
+});
+
+test("schema requires an honest status note for development products", async () => {
+  const [manifest, schema] = await Promise.all([
+    readJson(MANIFEST_RELATIVE_PATH),
+    readJson(SCHEMA_RELATIVE_PATH),
+  ]);
+  const invalidManifest = structuredClone(manifest);
+  const canvas = invalidManifest.products.find(({ id }) => id === "canvas");
+  delete canvas.statusNote;
+
+  assert.match(
+    validateManifestData(invalidManifest, schema).join("\n"),
+    /statusNote/,
   );
 });
 
@@ -91,6 +126,31 @@ test("policy rejects personal namespaces in operational product URLs", async () 
   );
 });
 
+test("policy rejects the legacy website as an operational product URL", async () => {
+  const manifest = await readJson(MANIFEST_RELATIVE_PATH);
+  const invalidManifest = structuredClone(manifest);
+  invalidManifest.products[0].urls.documentation =
+    "https://memoire.cv/docs";
+
+  assert.match(
+    validateBrandPolicy(invalidManifest).join("\n"),
+    /personal or legacy URL/i,
+  );
+});
+
+test("policy rejects ambiguous or operational legacy exceptions", async () => {
+  const manifest = await readJson(MANIFEST_RELATIVE_PATH);
+  const invalidManifest = structuredClone(manifest);
+  const duplicate = structuredClone(invalidManifest.legacyProvenanceAllowlist[0]);
+  duplicate.operational = true;
+  invalidManifest.legacyProvenanceAllowlist.push(duplicate);
+
+  const errors = validateBrandPolicy(invalidManifest).join("\n");
+  assert.match(errors, /allowlist id .* duplicated/i);
+  assert.match(errors, /allowlist value .* duplicated/i);
+  assert.match(errors, /must be non-operational/i);
+});
+
 test("managed documentation is synchronized with the manifest", async () => {
   const manifest = await readJson(MANIFEST_RELATIVE_PATH);
   const renderedDocuments = renderManagedDocuments(manifest);
@@ -106,9 +166,49 @@ test("managed documentation is synchronized with the manifest", async () => {
   assert.deepEqual(await checkRepository(repositoryRoot), []);
 });
 
+test("repository check reports generated drift and personal URLs", async (context) => {
+  const temporaryRoot = await mkdtemp(path.join(tmpdir(), "memi-brand-test-"));
+  context.after(() => rm(temporaryRoot, { recursive: true, force: true }));
+  const copiedPaths = [
+    MANIFEST_RELATIVE_PATH,
+    SCHEMA_RELATIVE_PATH,
+    "profile/README.md",
+    "ORG_ARCHITECTURE.md",
+    "brand/README.md",
+    "OPEN_SOURCE.md",
+    "CONTRIBUTING.md",
+    "GOVERNANCE.md",
+    "SECURITY.md",
+    "SUPPORT.md",
+    "CODE_OF_CONDUCT.md",
+  ];
+
+  for (const relativePath of copiedPaths) {
+    const target = path.join(temporaryRoot, relativePath);
+    await mkdir(path.dirname(target), { recursive: true });
+    await copyFile(path.join(repositoryRoot, relativePath), target);
+  }
+
+  const profilePath = path.join(temporaryRoot, "profile/README.md");
+  await writeFile(
+    profilePath,
+    `${await readFile(profilePath, "utf8")}\nhttps://github.com/sarveshsea/legacy\n`,
+  );
+
+  const errors = (await checkRepository(temporaryRoot)).join("\n");
+  assert.match(errors, /profile\/README\.md is not synchronized/);
+  assert.match(errors, /profile\/README\.md contains a personal operational URL/);
+});
+
 test("checked-in docs avoid stale pins and personal operational URLs", async () => {
   const documentation = await Promise.all(
-    ["profile/README.md", "ORG_ARCHITECTURE.md", "brand/README.md"].map(
+    [
+      "profile/README.md",
+      "ORG_ARCHITECTURE.md",
+      "brand/README.md",
+      "SECURITY.md",
+      "SUPPORT.md",
+    ].map(
       async (relativePath) =>
         readFile(path.join(repositoryRoot, relativePath), "utf8"),
     ),
@@ -117,6 +217,7 @@ test("checked-in docs avoid stale pins and personal operational URLs", async () 
 
   assert.doesNotMatch(combined, /@memi-design\/cli@\d+\.\d+\.\d+/);
   assert.doesNotMatch(combined, /https:\/\/github\.com\/sarveshsea\//);
+  assert.doesNotMatch(combined, /https:\/\/(?:www\.)?memoire\.cv\b/);
   assert.match(combined, /non-operational provenance/i);
 });
 
