@@ -17,9 +17,11 @@ Advance permission is not required for an unassigned `good first issue`.
 ## Choose the right repository
 
 - Core audits, CLI, MCP, GitHub Action, and focused skills: `memi`.
-- Canonical design skill catalog: `design-skills`.
+- Canonical design workflow catalog: `design-skills`.
 - Native macOS companion: `memi-studio`.
-- Reproducible web examples: `design-sandbox`.
+- In-development local-first canvas: `memi-canvas`.
+- Reproducible examples and integrations: the repository that owns that
+  bounded proof.
 - Bugs in a proof fork: report them in that fork and link the upstream source when relevant.
 
 Start with an issue for broad behavior or architecture changes. Small documentation, fixture, and focused bug fixes may go directly to a pull request.
@@ -43,6 +45,8 @@ a pull request:
 - Cite the repository file, route, or rendered evidence behind a design finding.
 - Retain licenses and attribution for adapted work.
 - Keep generated mirrors synchronized with their declared source of truth.
+- Keep product identity synchronized with
+  [`brand/brand-manifest.v1.json`](brand/brand-manifest.v1.json).
 - Use conventional commits such as `feat:`, `fix:`, `docs:`, `test:`, and `chore:`.
 
 Each repository may define additional checks in its own contributing guide.

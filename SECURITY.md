@@ -4,7 +4,11 @@
 
 Please use GitHub private vulnerability reporting on the affected repository when available. Do not open a public issue for credentials, arbitrary file access, archive traversal, command execution, SSRF, publisher compromise, or supply-chain vulnerabilities.
 
-If private reporting is unavailable, contact the maintainer through the security contact listed at [memoire.cv](https://memoire.cv) and include the repository, affected version, reproduction, impact, and suggested mitigation.
+If private reporting is unavailable, contact the maintainer through the
+security contact listed on the canonical [Memi website](https://memoire.cv).
+Do not include exploit details until a private channel is established. Then
+include the repository, affected release, reproduction, impact, and suggested
+mitigation.
 
 ## Supported releases
 
@@ -22,4 +26,3 @@ High-priority reports include:
 - secret exposure through logs, reports, or generated artifacts.
 
 Please allow a reasonable remediation window before public disclosure.
-

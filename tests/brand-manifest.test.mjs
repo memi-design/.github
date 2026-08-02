@@ -57,6 +57,7 @@ test("manifest names the four canonical products and keeps Canvas in development
   });
   assert.equal(Number.isInteger(manifest.brandRevision), true);
   assert.equal(manifest.brandRevision > 0, true);
+  assert.equal(manifest.organization.urls.website, "https://memoire.cv");
 });
 
 test("policy rejects missing, unexpected, and incorrectly staged products", async () => {
@@ -126,11 +127,11 @@ test("policy rejects personal namespaces in operational product URLs", async () 
   );
 });
 
-test("policy rejects the legacy website as an operational product URL", async () => {
+test("policy rejects personal namespaces in organization URLs", async () => {
   const manifest = await readJson(MANIFEST_RELATIVE_PATH);
   const invalidManifest = structuredClone(manifest);
-  invalidManifest.products[0].urls.documentation =
-    "https://memoire.cv/docs";
+  invalidManifest.organization.urls.github =
+    "https://github.com/sarveshsea";
 
   assert.match(
     validateBrandPolicy(invalidManifest).join("\n"),
@@ -217,7 +218,6 @@ test("checked-in docs avoid stale pins and personal operational URLs", async () 
 
   assert.doesNotMatch(combined, /@memi-design\/cli@\d+\.\d+\.\d+/);
   assert.doesNotMatch(combined, /https:\/\/github\.com\/sarveshsea\//);
-  assert.doesNotMatch(combined, /https:\/\/(?:www\.)?memoire\.cv\b/);
   assert.match(combined, /non-operational provenance/i);
 });
 
