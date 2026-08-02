@@ -6,7 +6,8 @@ Memi is developed in public around a small number of supported product surfaces.
 
 1. Use the first-audit command and report unclear output or missing evidence.
 2. Improve a focused skill, fixture, example, or documentation path.
-3. Reproduce a design-engineering problem in `design-sandbox`.
+3. Reproduce a design-engineering problem in the smallest relevant product or
+   proof repository.
 4. Propose a cross-repository change in `memi` Discussions before implementing it.
 5. Help review accessibility, platform compatibility, provenance, and licensing.
 
@@ -22,4 +23,9 @@ Issues labeled `good first issue` are scoped for a first contribution. Issues la
 
 ## Repository lifecycle
 
-Only supported products, distribution surfaces, and reproducible proofs belong in the organization. Incubating work is labeled clearly; abandoned or superseded work is archived with a replacement or end-of-life note. The current classification is documented in [ORG_ARCHITECTURE.md](ORG_ARCHITECTURE.md).
+Only supported products, distribution surfaces, and reproducible proofs belong
+in the organization. Development work is labeled clearly; abandoned or
+superseded work is archived with a replacement or end-of-life notice. The
+current classification is generated from
+[`brand/brand-manifest.v1.json`](brand/brand-manifest.v1.json) into
+[ORG_ARCHITECTURE.md](ORG_ARCHITECTURE.md).

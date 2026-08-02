@@ -28,9 +28,8 @@ requests, release channels, and public events where someone represents Memi.
 
 For conduct on GitHub, use GitHub's private
 [report-abuse path](https://support.github.com/contact/report-abuse). To request
-maintainer follow-up, mention the release owner
-[`@sarveshsea`](https://github.com/sarveshsea) without posting sensitive details;
-a private channel will be established before evidence is shared. Include links,
+maintainer follow-up, use the private contact route documented in
+[SECURITY.md](SECURITY.md) without posting sensitive details. Include links,
 dates, context, and any immediate safety concern only through that private
 channel. Do not open a public issue containing sensitive personal details.
 

@@ -19,7 +19,7 @@ body:
     id: version
     attributes:
       label: Version or commit
-      placeholder: 2.6.3 or a full commit SHA
+      placeholder: latest release or a full commit SHA
     validations:
       required: true
   - type: input

@@ -1,39 +1,33 @@
 # Memi Organization Architecture
 
-This document defines which repositories belong in `memi-design`, how they are classified, and what proof is required before they are presented as official.
+This document defines the supported product surfaces in `memi-design`, their release boundaries, and the proof required before a repository is presented as official.
 
-## Repository tiers
+The canonical machine-readable source is [`brand/brand-manifest.v1.json`](brand/brand-manifest.v1.json). This page is generated from brand revision **3**; run `npm run brand:sync` after changing the manifest.
 
-### Products
+## Product surfaces
 
-| Repository | Responsibility | Primary release |
-| --- | --- | --- |
-| `memi` | Audit engine, CLI, MCP, Action, focused skills | npm and GitHub Releases |
-| `memi-studio` | Native macOS companion | GitHub Releases and Homebrew |
-| `design-skills` | Canonical governed skill catalog | GitHub release and Agent Skills install |
-| `design-sandbox` | Runnable web proof and design-engineering lab | Hosted preview and source |
+| Product ID | Product | Status | Responsibility | License |
+| --- | --- | --- | --- | --- |
+| `cli` | [memi CLI](https://github.com/memi-design/memi) | Available | Read-only design engineering audit and skill layer for coding agents. | [MIT](https://github.com/memi-design/memi/blob/main/LICENSE) |
+| `studio` | [memi Studio](https://github.com/memi-design/memi-studio) | Available | Native macOS companion for supervised agent workflows and artifact review. | [FSL-1.1-ALv2](https://github.com/memi-design/memi-studio/blob/main/LICENSE); Apache-2.0 on 2028-05-09 |
+| `design-skills` | [memi Design Skills](https://github.com/memi-design/design-skills) | Available | Governed catalog of portable and capability-gated design workflows for coding agents. | [MIT](https://github.com/memi-design/design-skills/blob/main/LICENSE) |
+| `canvas` | [memi Canvas](https://github.com/memi-design/memi-canvas) | In development | Local-first canvas workbench for understanding, creating, and verifying software interfaces. | [Apache-2.0](https://github.com/memi-design/memi-canvas/blob/main/LICENSE) |
 
-### Distribution
+### Canvas release boundary
 
-| Repository | Responsibility |
-| --- | --- |
-| `homebrew-memi` | Formula and cask tap |
-| `audit-frontend-design` | Focused directory and install surface |
-| `remember-design-system` | Focused directory and install surface |
-| `enforce-design-ci` | Focused directory and install surface |
-| `memoire-web` | Website and public documentation deployment |
+Open-source M0 development snapshot; not yet a production importer or source editor. Canvas must remain labeled **In development** until its repository's capture, provider, source-write, security, recovery, and release gates are satisfied.
 
-The focused skill repositories are generated mirrors. Their source of truth remains `memi`.
+## Distribution surfaces
 
-### Labs and proofs
+- `homebrew-memi` owns the canonical Homebrew formula and cask tap.
+- Focused skill repositories are install and discovery mirrors; they must identify their canonical source and remain synchronized.
+- The organization profile and [public website](https://memoire.cv) are projections of the brand and release manifests, not independent version authorities.
 
-Labs exist to demonstrate one integration or design-engineering capability. They are not separate product lines.
+No personal namespace is an operational source, install, support, container, or release route.
 
-| Repository | Proof contract |
-| --- | --- |
-| `mermaid-jam` | Local-only FigJam diagram tooling with a verified public Pages build |
-| `ripple-image-transitions` | SwiftUI and Metal audit integration with retained upstream attribution |
-| `chatbot` | Real shadcn application with a pinned design-CI workflow |
+## Labs and integration proofs
+
+Labs demonstrate one bounded integration or design-engineering capability. They are not separate product lines and must preserve upstream attribution. A proof becomes official only when its README states the proof contract, the public path is runnable, and current verification evidence exists.
 
 ## Repository contract
 
@@ -41,7 +35,7 @@ Every official public repository must have:
 
 1. A one-sentence job and one first-run path.
 2. An explicit license and retained third-party attribution.
-3. A maintained README with current organization links.
+3. A maintained README whose product identity matches the brand manifest.
 4. CI appropriate to its runtime and a pinned dependency policy.
 5. Security reporting through the organization policy.
 6. Topics, description, homepage, and repository visibility set deliberately.
@@ -52,12 +46,14 @@ Every official public repository must have:
 
 | Surface | Source of truth | Identity constraint |
 | --- | --- | --- |
-| npm `@memi-design/cli` | `memi/release-manifest.json` | Trusted Publisher must target `memi-design/memi` |
+| npm package | `memi/release-manifest.json` | Trusted Publisher targets `memi-design/memi` |
 | GitHub Action | `memi/action.yml` | Consumers pin a full commit SHA |
-| MCP Registry | `memi/server.json` | Existing server identity remains compatible during migration |
-| GHCR | Core release workflow | New releases publish to `ghcr.io/memi-design/memi`; the personal namespace remains historical |
-| Homebrew | `homebrew-memi` | Canonical tap is `memi-design/memi` |
-| Website | `memoire-web` | Version and release copy are generated from the core manifest |
+| MCP Registry | `memi/server.json` | Current server identity remains compatible during migration |
+| Container images | Core release workflow | New releases publish only to the organization namespace |
+| Homebrew | `homebrew-memi` | The canonical tap is owned by `memi-design` |
+| Product identity | `brand/brand-manifest.v1.json` | Names, statuses, URLs, licenses, icons, and aliases use one brand revision |
+
+Release versions and public parity evidence stay in the core release manifest. A published artifact is not described as parity-verified until its independent verification gate passes.
 
 ## Transfer gate
 
@@ -69,13 +65,13 @@ Before moving a repository:
 - update the canonical local remote;
 - rerun clean installs and public-link checks after the move.
 
-Any repository with a live Pages environment moves only after its external identity is ready.
+Any repository with a live release or Pages environment moves only after its external identity is ready. Historical personal namespaces may remain only inside the non-operational provenance allowlist.
 
 ## Lifecycle
 
-- **Official:** actively maintained and part of the supported product path.
+- **Available:** supported now through at least one documented public route.
+- **Development:** implementation is public, but required product or release proof remains incomplete.
 - **Proof:** maintained integration with reproducible evidence.
-- **Incubating:** incomplete experiment; not pinned or advertised as supported.
 - **Archived:** read-only historical reference with a replacement or end-of-life notice.
 
-Repository count is not a growth metric. A repository belongs in the organization only when it makes the product easier to understand, install, verify, or extend.
+Repository count is not a growth metric. A repository belongs in the organization only when it makes a supported product easier to understand, install, verify, or extend.

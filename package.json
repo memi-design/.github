@@ -1,0 +1,19 @@
+{
+  "name": "@memi-design/org-profile",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "brand:check": "node scripts/validate-brand-manifest.mjs --check",
+    "brand:sync": "node scripts/validate-brand-manifest.mjs --write",
+    "test": "node --test",
+    "test:coverage": "node --test --experimental-test-coverage --test-coverage-lines=80 --test-coverage-functions=80 --test-coverage-branches=80",
+    "check": "npm run brand:check && npm run test:coverage"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "ajv": "8.20.0"
+  }
+}
