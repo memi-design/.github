@@ -4,7 +4,7 @@ This directory contains the canonical organization assets and the versioned prod
 
 ## Sources of truth
 
-- [`brand-manifest.v1.json`](brand-manifest.v1.json) records brand revision **1** and the canonical product IDs, names, roles, statuses, URLs, licenses, icons, aliases, and legacy exceptions.
+- [`brand-manifest.v1.json`](brand-manifest.v1.json) records brand revision **2** and the canonical product IDs, names, roles, statuses, URLs, licenses, icons, aliases, and legacy exceptions.
 - [`brand-manifest.v1.schema.json`](brand-manifest.v1.schema.json) is the JSON Schema for manifest version 1.
 - [Memi's public website](https://memoire.cv) is a current organization surface; its domain is not a legacy alias.
 - `npm run brand:check` validates the schema, policy invariants, and synchronized documentation.
@@ -16,10 +16,10 @@ Consumers should reject unsupported `schemaVersion` values. Increment `brandRevi
 
 | Product ID | Canonical name | Status | License | Accepted aliases | Primary icon |
 | --- | --- | --- | --- | --- | --- |
-| `cli` | [Memi CLI](https://github.com/memi-design/memi) | Available | [MIT](https://github.com/memi-design/memi/blob/main/LICENSE) | `Memi`, `Memi Engine`, `Mémoire`, `Mémoire CLI`, `Mémoire Engine` | [memi-mark](https://raw.githubusercontent.com/memi-design/.github/main/brand/memi-avatar.png) |
-| `studio` | [Memi Studio](https://github.com/memi-design/memi-studio) | Available | [FSL-1.1-ALv2](https://github.com/memi-design/memi-studio/blob/main/LICENSE) | `Mémoire Studio` | [studio-app-icon](https://raw.githubusercontent.com/memi-design/memi-studio/main/docs/assets/memi-icon-dark.png) |
-| `design-skills` | [Memi Design Skills](https://github.com/memi-design/design-skills) | Available | [MIT](https://github.com/memi-design/design-skills/blob/main/LICENSE) | `Design Skills`, `Memi Skills`, `Mémoire Design Skills` | [memi-mark](https://raw.githubusercontent.com/memi-design/.github/main/brand/memi-avatar.png) |
-| `canvas` | [Memi Canvas](https://github.com/memi-design/memi-canvas) | In development | [Apache-2.0](https://github.com/memi-design/memi-canvas/blob/main/LICENSE) | `Mémoire Canvas` | [memi-mark](https://raw.githubusercontent.com/memi-design/.github/main/brand/memi-avatar.png) |
+| `cli` | [memi CLI](https://github.com/memi-design/memi) | Available | [MIT](https://github.com/memi-design/memi/blob/main/LICENSE) | `Memi`, `Memi Engine`, `Mémoire`, `Mémoire CLI`, `Mémoire Engine` | [memi-mark](https://raw.githubusercontent.com/memi-design/.github/main/brand/memi-avatar.png) |
+| `studio` | [memi Studio](https://github.com/memi-design/memi-studio) | Available | [FSL-1.1-ALv2](https://github.com/memi-design/memi-studio/blob/main/LICENSE) | `Mémoire Studio` | [studio-app-icon](https://raw.githubusercontent.com/memi-design/memi-studio/main/docs/assets/memi-icon-dark.png) |
+| `design-skills` | [memi Design Skills](https://github.com/memi-design/design-skills) | Available | [MIT](https://github.com/memi-design/design-skills/blob/main/LICENSE) | `Design Skills`, `Memi Skills`, `Mémoire Design Skills` | [memi-mark](https://raw.githubusercontent.com/memi-design/.github/main/brand/memi-avatar.png) |
+| `canvas` | [memi Canvas](https://github.com/memi-design/memi-canvas) | In development | [Apache-2.0](https://github.com/memi-design/memi-canvas/blob/main/LICENSE) | `Mémoire Canvas` | [canvas-single-heart](https://raw.githubusercontent.com/memi-design/memi-canvas/main/apps/macos/src-tauri/icons/icon.png) |
 
 Aliases exist for search, migration, and compatibility. They do not replace the canonical name on current release, install, support, or documentation surfaces.
 

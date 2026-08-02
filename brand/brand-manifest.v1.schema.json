@@ -120,11 +120,13 @@
     "icon": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["id", "purpose", "url", "alt"],
+      "required": ["id", "purpose", "url", "sha256", "alt"],
       "properties": {
         "id": { "$ref": "#/$defs/slug" },
         "purpose": { "enum": ["primary", "app", "mark"] },
         "url": { "$ref": "#/$defs/httpsUrl" },
+        "sourceUrl": { "$ref": "#/$defs/httpsUrl" },
+        "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
         "alt": { "type": "string", "minLength": 1 }
       }
     },

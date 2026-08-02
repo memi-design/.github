@@ -1,11 +1,11 @@
 {
   "$schema": "./brand-manifest.v1.schema.json",
   "schemaVersion": 1,
-  "brandRevision": 1,
+  "brandRevision": 2,
   "updatedAt": "2026-08-02",
   "organization": {
     "id": "memi-design",
-    "name": "Memi",
+    "name": "memi",
     "tagline": "The design layer for agentic AI.",
     "urls": {
       "github": "https://github.com/memi-design",
@@ -15,7 +15,7 @@
   "products": [
     {
       "id": "cli",
-      "name": "Memi CLI",
+      "name": "memi CLI",
       "role": "Read-only design engineering audit and skill layer for coding agents.",
       "status": "available",
       "urls": {
@@ -33,6 +33,7 @@
           "id": "memi-mark",
           "purpose": "primary",
           "url": "https://raw.githubusercontent.com/memi-design/.github/main/brand/memi-avatar.png",
+          "sha256": "64b988527b6e5dd8a5d4ad13166aa944b8522f5adf8264d115aab0e4bc54ecad",
           "alt": "Memi pixel-heart mark"
         }
       ],
@@ -46,7 +47,7 @@
     },
     {
       "id": "studio",
-      "name": "Memi Studio",
+      "name": "memi Studio",
       "role": "Native macOS companion for supervised agent workflows and artifact review.",
       "status": "available",
       "urls": {
@@ -69,6 +70,7 @@
           "id": "studio-app-icon",
           "purpose": "app",
           "url": "https://raw.githubusercontent.com/memi-design/memi-studio/main/docs/assets/memi-icon-dark.png",
+          "sha256": "87cd2c6467ab58387d7eb2597ee2d56605cb89f1e7380d874895d63a890de5c8",
           "alt": "Memi Studio app icon"
         }
       ],
@@ -78,13 +80,13 @@
     },
     {
       "id": "design-skills",
-      "name": "Memi Design Skills",
+      "name": "memi Design Skills",
       "role": "Governed catalog of portable and capability-gated design workflows for coding agents.",
       "status": "available",
       "urls": {
         "repository": "https://github.com/memi-design/design-skills",
         "documentation": "https://github.com/memi-design/design-skills#readme",
-        "install": "https://skills.sh/memi-design/design-skills"
+        "install": "https://github.com/memi-design/design-skills#installation"
       },
       "license": {
         "spdx": "MIT",
@@ -96,6 +98,7 @@
           "id": "memi-mark",
           "purpose": "primary",
           "url": "https://raw.githubusercontent.com/memi-design/.github/main/brand/memi-avatar.png",
+          "sha256": "64b988527b6e5dd8a5d4ad13166aa944b8522f5adf8264d115aab0e4bc54ecad",
           "alt": "Memi pixel-heart mark"
         }
       ],
@@ -107,7 +110,7 @@
     },
     {
       "id": "canvas",
-      "name": "Memi Canvas",
+      "name": "memi Canvas",
       "role": "Local-first canvas workbench for understanding, creating, and verifying software interfaces.",
       "status": "development",
       "statusNote": "Open-source M0 development snapshot; not yet a production importer or source editor.",
@@ -122,10 +125,12 @@
       },
       "icons": [
         {
-          "id": "memi-mark",
-          "purpose": "primary",
-          "url": "https://raw.githubusercontent.com/memi-design/.github/main/brand/memi-avatar.png",
-          "alt": "Memi pixel-heart mark"
+          "id": "canvas-single-heart",
+          "purpose": "app",
+          "url": "https://raw.githubusercontent.com/memi-design/memi-canvas/main/apps/macos/src-tauri/icons/icon.png",
+          "sourceUrl": "https://raw.githubusercontent.com/memi-design/memi-canvas/main/apps/macos/src-tauri/icons/source/MemiCanvas-Iteration-02.icon/icon.json",
+          "sha256": "da068f20ba9e0e43f59ebde8602b43342f8c77fef2c080155a18d5a8fd0e25c2",
+          "alt": "Ruby single pixel-heart memi Canvas icon"
         }
       ],
       "aliases": [

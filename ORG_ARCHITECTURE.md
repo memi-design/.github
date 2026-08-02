@@ -2,16 +2,16 @@
 
 This document defines the supported product surfaces in `memi-design`, their release boundaries, and the proof required before a repository is presented as official.
 
-The canonical machine-readable source is [`brand/brand-manifest.v1.json`](brand/brand-manifest.v1.json). This page is generated from brand revision **1**; run `npm run brand:sync` after changing the manifest.
+The canonical machine-readable source is [`brand/brand-manifest.v1.json`](brand/brand-manifest.v1.json). This page is generated from brand revision **2**; run `npm run brand:sync` after changing the manifest.
 
 ## Product surfaces
 
 | Product ID | Product | Status | Responsibility | License |
 | --- | --- | --- | --- | --- |
-| `cli` | [Memi CLI](https://github.com/memi-design/memi) | Available | Read-only design engineering audit and skill layer for coding agents. | [MIT](https://github.com/memi-design/memi/blob/main/LICENSE) |
-| `studio` | [Memi Studio](https://github.com/memi-design/memi-studio) | Available | Native macOS companion for supervised agent workflows and artifact review. | [FSL-1.1-ALv2](https://github.com/memi-design/memi-studio/blob/main/LICENSE); Apache-2.0 on 2028-05-09 |
-| `design-skills` | [Memi Design Skills](https://github.com/memi-design/design-skills) | Available | Governed catalog of portable and capability-gated design workflows for coding agents. | [MIT](https://github.com/memi-design/design-skills/blob/main/LICENSE) |
-| `canvas` | [Memi Canvas](https://github.com/memi-design/memi-canvas) | In development | Local-first canvas workbench for understanding, creating, and verifying software interfaces. | [Apache-2.0](https://github.com/memi-design/memi-canvas/blob/main/LICENSE) |
+| `cli` | [memi CLI](https://github.com/memi-design/memi) | Available | Read-only design engineering audit and skill layer for coding agents. | [MIT](https://github.com/memi-design/memi/blob/main/LICENSE) |
+| `studio` | [memi Studio](https://github.com/memi-design/memi-studio) | Available | Native macOS companion for supervised agent workflows and artifact review. | [FSL-1.1-ALv2](https://github.com/memi-design/memi-studio/blob/main/LICENSE); Apache-2.0 on 2028-05-09 |
+| `design-skills` | [memi Design Skills](https://github.com/memi-design/design-skills) | Available | Governed catalog of portable and capability-gated design workflows for coding agents. | [MIT](https://github.com/memi-design/design-skills/blob/main/LICENSE) |
+| `canvas` | [memi Canvas](https://github.com/memi-design/memi-canvas) | In development | Local-first canvas workbench for understanding, creating, and verifying software interfaces. | [Apache-2.0](https://github.com/memi-design/memi-canvas/blob/main/LICENSE) |
 
 ### Canvas release boundary
 
