@@ -4,7 +4,7 @@ This directory contains the canonical organization assets and the versioned prod
 
 ## Sources of truth
 
-- [`brand-manifest.v1.json`](brand-manifest.v1.json) records brand revision **2** and the canonical product IDs, names, roles, statuses, URLs, licenses, icons, aliases, and legacy exceptions.
+- [`brand-manifest.v1.json`](brand-manifest.v1.json) records brand revision **3** and the canonical product IDs, names, roles, statuses, URLs, licenses, icons, aliases, and legacy exceptions.
 - [`brand-manifest.v1.schema.json`](brand-manifest.v1.schema.json) is the JSON Schema for manifest version 1.
 - [Memi's public website](https://memoire.cv) is a current organization surface; its domain is not a legacy alias.
 - `npm run brand:check` validates the schema, policy invariants, and synchronized documentation.

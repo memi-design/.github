@@ -92,6 +92,7 @@ function validateAliases(products) {
 function operationalUrls(product) {
   return [
     ...Object.values(product.urls ?? {}),
+    ...(product.packages ?? []).map((packageIdentity) => packageIdentity.url),
     product.license?.url,
     product.license?.futureLicense?.url,
     ...(product.icons ?? []).map((icon) => icon.url),

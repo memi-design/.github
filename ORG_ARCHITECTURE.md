@@ -2,7 +2,7 @@
 
 This document defines the supported product surfaces in `memi-design`, their release boundaries, and the proof required before a repository is presented as official.
 
-The canonical machine-readable source is [`brand/brand-manifest.v1.json`](brand/brand-manifest.v1.json). This page is generated from brand revision **2**; run `npm run brand:sync` after changing the manifest.
+The canonical machine-readable source is [`brand/brand-manifest.v1.json`](brand/brand-manifest.v1.json). This page is generated from brand revision **3**; run `npm run brand:sync` after changing the manifest.
 
 ## Product surfaces
 

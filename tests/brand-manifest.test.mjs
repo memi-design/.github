@@ -191,6 +191,14 @@ test("policy rejects personal namespaces in operational product URLs", async () 
     validateBrandPolicy(invalidManifest).join("\n"),
     /personal or legacy URL/i,
   );
+
+  const invalidPackageManifest = structuredClone(manifest);
+  invalidPackageManifest.products[0].packages[0].url =
+    "https://github.com/sarveshsea/memi";
+  assert.match(
+    validateBrandPolicy(invalidPackageManifest).join("\n"),
+    /personal or legacy URL/i,
+  );
 });
 
 test("policy rejects personal namespaces in organization URLs", async () => {
