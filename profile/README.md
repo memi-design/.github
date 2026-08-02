@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/memi-design/.github/main/brand/memi-social-preview.jpg" alt="Memi pixel-heart mosaic on a black field." width="100%" />
+  <img src="https://raw.githubusercontent.com/memi-design/.github/main/brand/memi-brand-banner.png" alt="Memi — the design layer for agentic AI." width="100%" />
 </p>
 
 <p align="center">
