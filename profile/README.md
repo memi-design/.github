@@ -21,7 +21,7 @@ npx -y @memi-design/cli@2.7.9 diagnose . --json --no-write --fail-on none
 
 No account, API key, Figma file, global install, or daemon is required for the first audit.
 
-The published stable CLI (`latest`) remains **2.7.9**. The [**2.8.0-beta.1 prerelease**](https://www.npmjs.com/package/@memi-design/cli/v/2.8.0-beta.1) is available on npm’s `next` channel. Beta availability does not establish stable readiness or employer approval; see the [beta limitations](https://github.com/memi-design/memi/blob/main/docs/trust/KNOWN_LIMITATIONS.md).
+The published stable CLI (`latest`) remains **2.7.9**. The [**2.8.0-beta.2 prerelease**](https://www.npmjs.com/package/@memi-design/cli/v/2.8.0-beta.2) is available on npm’s `next` channel. Beta availability does not establish stable readiness or employer approval; see the [beta limitations](https://github.com/memi-design/memi/blob/main/docs/trust/KNOWN_LIMITATIONS.md).
 
 Memi does not promise general token or cost savings. Results depend on the task, model, and workflow; any savings claim needs a measured baseline and a comparable run.
 
