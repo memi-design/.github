@@ -10,6 +10,7 @@ This document defines which repositories belong in `memi-design`, how they are c
 | --- | --- | --- |
 | `memi` | Audit engine, CLI, MCP, Action, focused skills | npm and GitHub Releases |
 | `memi-studio` | Native macOS companion | GitHub Releases and Homebrew |
+| `memi-canvas` | Incubating spatial design workbench | Source build; no published release |
 | `design-skills` | Canonical governed skill catalog | GitHub release and Agent Skills install |
 | `design-sandbox` | Runnable web proof and design-engineering lab | Hosted preview and source |
 

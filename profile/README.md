@@ -16,10 +16,14 @@ Read-only design engineering for coding agents.
 Memi gives Codex, Claude Code, Cursor, Grok Build, and MCP clients file-anchored interface evidence before they edit UI.
 
 ```bash
-npx -y @memi-design/cli@2.6.3 diagnose . --json --no-write --fail-on none
+npx -y @memi-design/cli@2.7.9 diagnose . --json --no-write --fail-on none
 ```
 
 No account, API key, Figma file, global install, or daemon is required for the first audit.
+
+The published stable CLI is **2.7.9**. The **2.8 trust-core work is a development candidate**, not a published release. Candidate code and checks do not establish npm availability or production readiness.
+
+Memi does not promise general token or cost savings. Results depend on the task, model, and workflow; any savings claim needs a measured baseline and a comparable run.
 
 ## Start here
 
