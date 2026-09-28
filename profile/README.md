@@ -30,7 +30,7 @@ Memi does not promise general token or cost savings. Results depend on the task,
 | Repository | Role |
 | --- | --- |
 | [`memi`](https://github.com/memi-design/memi) | Core CLI, MCP server, GitHub Action, focused Agent Skills, and audit engine |
-| [`design-skills`](https://github.com/memi-design/design-skills) | Governed catalog of 94 design, research, craft, generation, and Figma skills |
+| [`design-skills`](https://github.com/memi-design/design-skills) | Governed catalog of 95 skills, including a Figma/Paper-to-code handoff for existing components and Storybook checks |
 | [`memi-studio`](https://github.com/memi-design/memi-studio) | Native macOS companion for supervised agent workflows |
 | [`design-sandbox`](https://github.com/memi-design/design-sandbox) | Runnable Next.js proof environment for design audits and integrations |
 
